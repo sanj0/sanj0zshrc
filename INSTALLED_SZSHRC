@@ -1,0 +1,26 @@
+eval $(thefuck --alias)
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home
+export PATH=$PATH:~/anaconda3/bin:~/v
+export EDITOR=vim
+export ICLOUD=~/Library/Mobile\ Documents/com~apple~CloudDocs/
+alias desktopicons='desktopIcons'
+alias icons='desktopIcons'
+alias chrome='open -a "Google Chrome"'
+alias google-chrome='open -a "Google Chrome"'
+alias cjava='find . -name "*.java" | xargs wc -l'
+alias clines='find . -type f -print0 | xargs -0 wc -l'
+alias please='sudo'
+alias finder='open .'
+
+# actives or deactivates the icons on the desktop
+# usage: desktopIcons [true/false]
+function desktopIcons {
+	defaults write com.apple.finder CreateDesktop $1
+	killall Finder
+}
+# separates an audio file into vocals and rest
+# only works with spleeter installed in PATH (duh)
+# usage: separate INPUT OUTPUT
+function separate {
+	spleeter separate -i $1 -p spleeter:2stems -o $2
+}
