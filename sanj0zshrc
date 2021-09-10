@@ -20,6 +20,13 @@ function desktopIcons {
 	defaults write com.apple.finder CreateDesktop $1
 	killall Finder
 }
+
+# toggles visibility of hidden files within Finder
+# usage: toggleHidden [true/false]
+function showHidden {
+    defaults write com.apple.Finder AppleShowAllFiles $1
+    killall Finder
+}
 # separates an audio file into vocals and rest
 # only works with spleeter installed in PATH (duh)
 # usage: separate INPUT OUTPUT
