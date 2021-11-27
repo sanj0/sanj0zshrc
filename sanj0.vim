@@ -23,19 +23,12 @@ let g:rainbow_active = 1
 colorscheme onedark
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 set autoindent
+set smartindent
 set nu
 syntax on
 set spelllang=en_us,de_de
-
-if has("vms")
-  set nobackup          " do not keep a backup file, use versions instead
-else
-  set backup            " keep a backup file (restore to previous version)
-  if has('persistent_undo')
-    set undofile        " keep an undo file (undo changes after closing)
-  endif
-endif
 
 if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
