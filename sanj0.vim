@@ -26,7 +26,7 @@ autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | e
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 set autoindent
 set smartindent
-set nu
+set rnu
 syntax on
 set spelllang=en_us,de_de
 
