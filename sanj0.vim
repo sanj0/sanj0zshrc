@@ -20,7 +20,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 let g:rainbow_active = 1
-colorscheme onedark
+colorscheme slate
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
