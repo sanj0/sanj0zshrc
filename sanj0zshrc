@@ -12,6 +12,7 @@ alias clines='find . -type f -print0 | xargs -0 wc -l'
 alias please='sudo'
 alias finder='open .'
 alias bc='bc -l'
+alias j='jbsn'
 
 # actives or deactivates the icons on the desktop
 # usage: desktopIcons [true/false]
