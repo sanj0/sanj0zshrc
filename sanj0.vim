@@ -20,6 +20,9 @@ filetype plugin indent on    " required
 
 let g:rainbow_active = 1
 set background=dark
+set path=**
+" ignore .class files in maven target for gf
+set wildignore+=*/target/*
 colorscheme gruvbox
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
