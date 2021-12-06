@@ -1,5 +1,5 @@
 #!/bin/bash
-SANJ0ZSHRC="sanj0zshrc"
+SANJ0ZSHRC="sanj0zshrc.sh"
 SANJ0VIM="sanj0.vim"
 INSTALLED_SZSHRC="$HOME/.sanj0zshrc"
 INSTALLED_SVIM="$HOME/.sanj0.vim"
