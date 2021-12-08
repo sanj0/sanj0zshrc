@@ -11,7 +11,9 @@ alias cjava='find . -name "*.java" | xargs wc -l'
 alias clines='find . -type f -print0 | xargs -0 wc -l'
 alias please='sudo'
 alias finder='open .'
-alias bc='bc -l'
+# make sure the file exists because bc will not start when it doesn't exist
+touch ~/.bcrc.bc
+alias bc='bc -l ~/.bcrc.bc'
 alias j='jbsn'
 
 # actives or deactivates the icons on the desktop
