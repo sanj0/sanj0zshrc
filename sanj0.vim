@@ -20,9 +20,10 @@ filetype plugin indent on    " required
 
 let g:rainbow_active = 1
 set background=dark
-set path=**
+set path+=**
 " ignore .class files in maven target for gf
 set wildignore+=*/target/*
+set wildmenu
 colorscheme gruvbox
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
@@ -32,6 +33,8 @@ set smartindent
 set nu rnu
 syntax on
 set spelllang=en_us,de_de
+set ts=4 sw=4
+
 
 if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
@@ -55,4 +58,3 @@ augroup END
 if has('syntax') && has('eval')
   packadd! matchit
 endif
-set tb=4
