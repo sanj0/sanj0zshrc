@@ -18,6 +18,7 @@ Plugin 'morhetz/gruvbox'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+let mapleader=","
 let g:rainbow_active = 1
 set background=dark
 set path+=**
@@ -34,7 +35,6 @@ set nu rnu
 syntax on
 set spelllang=en_us,de_de
 set ts=4 sw=4
-
 
 if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
