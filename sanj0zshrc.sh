@@ -12,7 +12,7 @@ alias clines='find . -type f -print0 | xargs -0 wc -l'
 alias please='sudo'
 alias finder='open .'
 # make sure the file exists because bc will not start when it doesn't exist
-if [ ! -e ~/bcrc.bc ] then;
+if [ ! -e ~/.bcrc.bc ]; then
 	touch ~/.bcrc.bc
 fi
 alias bc='bc -l ~/.bcrc.bc'
