@@ -29,12 +29,12 @@ colorscheme gruvbox
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-set autoindent
 set smartindent
 set nu rnu
 syntax on
 set spelllang=en_us,de_de
 set ts=4 sw=4
+set expandtab
 
 if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
