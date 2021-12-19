@@ -1,0 +1,169 @@
+e  = 2.7182818284590452353602874713527
+pi = 3.1415926535897932384626433832795
+
+/*
+ * Generates pi to the given scale s (precision)
+ * and stores it in the global 'pi'.
+ *
+ * Calculates 4*a(1) for s+1 and truncates it down again
+ * so the result should be exact.
+*/
+define gen_pi(s) {
+	auto os;
+	os = scale;
+	scale = s+1;
+	pi = 4*a(1);
+	scale -= 1;
+	pi = pi / 1;
+	scale = os;
+	return pi;
+}
+
+/* Generates e to the given scale s (precision)
+ * and stores it in the global 'e'.
+ *
+ * Done using the appropriate Taylor series
+ * with s + 2 iterations giving an exact result.
+*/
+define gen_e(s) {
+	auto p, f, os, i;
+	os = scale;
+	scale = s+2;
+	e = 2;
+	f = 1;
+	for (i = 2; i < scale; i++) {
+		f *= i;
+		e += 1 / f;
+	}
+	scale -= 2;
+	e = e / 1;
+	scale = os;
+	return e;
+}
+
+/*
+ * Recursive factorial.
+ * returns 1 for every n smaller than or equal to 1
+*/
+define fac(n) {
+    auto i, r;
+    if (n <= 0 || scale(n) != 0) {
+        "ERROR: factorial only defined for natural numbers n > ";
+        return;
+    }
+    r = 1;
+    for (i = 2; i <= n; i++) {
+        r *= i;
+    }
+    return r;
+}
+
+/*
+ * Raises the first argument b 
+ * to the power of the second argument ex.
+ *
+ * Can handle non-natural exponents
+ * that cannot be handled by the ^ operator.
+ * Relies on the precision of the built-in
+ * functions e and l.
+*/
+define pow(b, ex) {
+	if (scale(ex) == 0) return b^ex;
+	return e(l(b)*ex);
+}
+
+/*
+ * Floors the given number x i. e.
+ * returns the greatest natural number
+ * that is less than x.
+ *
+ * The returned number has a scale of 0.
+*/
+define floor(x) {
+	auto s, r;
+	if (x < 0) return -ceil(-x);
+	s = scale;
+	scale = 0;
+	r = (x - x % 1) / 1;
+	scale = s;
+	return r;
+}
+
+/*
+ * Ceils the given number x i. e.
+ * returns the smallest natural number
+ * that is greater than x.
+ *
+ * The returned number has a scale of 0.
+*/
+define ceil(x) {
+	auto s, r, m;
+	if (x < 0) return -floor(-x);
+	s = scale;
+	scale = 0;
+	if (m = x % 1 == 0) {
+		r = x / 1;
+	} else {
+		r = (1 - x % 1 + x) / 1;
+	}
+	scale = s;
+	return r;
+}
+
+/*
+ * Returns the logarithm base b
+ * of x.
+ * 
+ * Relies on the precision of l.
+*/
+define log(b, x) {
+	return l(x) / l(b);
+}	
+
+/*
+ * Returns the logarithm base 10
+ * of the given x.
+ * 
+ * see also: log(b, x)
+*/
+define log10(x) {
+	return log(10, x);
+}
+
+/*
+ * Returns the logarithm base 2
+ * of the given x.
+ * 
+ * see also: log(b, x)
+*/
+define lb(x) {
+	return log(2, x);
+}
+
+/*
+ * Returns the absolute value of the given x.
+*/
+define abs(x) {
+	if (x < 0) return -x;
+	return x;
+}
+
+/*
+ * Returns the given radians as degrees.
+ * 
+ * Relies on the precision of pi, which can
+ * be generated to arbitrary scale s using gen_pi(s)
+*/
+define deg(r) {
+	return r / pi * 180;
+}
+
+/*
+ * Returns the given degrees as radians.
+ * 
+ * Relies on the precision of pi, which can
+ * be generated to arbitrary scale s using gen_pi(s)
+*/
+define rad(d) {
+	return d / 180 * pi;
+}
