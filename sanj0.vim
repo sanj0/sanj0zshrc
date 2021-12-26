@@ -33,6 +33,8 @@ set smartindent
 set nu rnu
 syntax on
 set spelllang=en_us,de_de
+set spell
+set complete+=kspell
 set ts=4 sw=4
 set expandtab
 
