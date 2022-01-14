@@ -38,6 +38,9 @@ set complete+=kspell
 set ts=4 sw=4
 set expandtab
 
+set list
+set listchars=tab:>-,trail:.
+
 if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
   set hlsearch
