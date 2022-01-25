@@ -3,6 +3,7 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-14.0.2.jdk/Contents/Home
 export PATH=$PATH:~/anaconda3/bin:~/v:$HOME/go/bin
 export EDITOR=vim
 export ICLOUD=~/Library/Mobile\ Documents/com~apple~CloudDocs/
+export PF_INFO="ascii title os shell editor palette host kernel uptime pkgs memory"
 alias desktopicons='desktopIcons'
 alias icons='desktopIcons'
 alias firefox='open -a Firefox'
@@ -37,3 +38,4 @@ function showHidden {
 function separate {
 	spleeter separate -i $1 -p spleeter:2stems -o $2
 }
+
