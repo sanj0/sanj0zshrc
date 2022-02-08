@@ -12,6 +12,7 @@ alias cjava='find . -name "*.java" | xargs wc -l'
 alias clines='find . -type f -print0 | xargs -0 wc -l'
 alias please='sudo'
 alias finder='open .'
+alias :q='exit'
 # make sure the file exists because bc will not start when it doesn't exist
 if [ ! -e ~/.bcrc.bc ]; then
 	touch ~/.bcrc.bc
