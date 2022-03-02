@@ -12,6 +12,7 @@ Plugin 'frazrepo/vim-rainbow'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'preservim/nerdtree'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'sainnhe/sonokai'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -24,7 +25,7 @@ set path+=**
 " ignore .class files in maven target for gf
 set wildignore+=*/target/*
 set wildmenu
-colorscheme default
+colorscheme sonokai
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
