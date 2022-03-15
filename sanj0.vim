@@ -38,6 +38,9 @@ set complete+=kspell
 set ts=4 sw=4
 set expandtab
 
+" show word count
+set statusline+=%{wordcount().words}\ words
+
 set list
 set listchars=tab:>-,trail:.
 
