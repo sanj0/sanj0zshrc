@@ -13,6 +13,7 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'preservim/nerdtree'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'sainnhe/sonokai'
+Plugin 'vim-airline/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
