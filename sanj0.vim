@@ -38,6 +38,7 @@ set spell
 set complete+=kspell
 set ts=4 sw=4
 set expandtab
+set scrolloff=999
 
 " show word count
 set statusline+=%{wordcount().words}\ words
