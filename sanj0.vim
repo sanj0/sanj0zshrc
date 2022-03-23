@@ -38,6 +38,15 @@ set complete+=kspell
 set ts=4 sw=4
 set expandtab
 
+
+" some setting to make text editing way better
+noremap j gj
+noremap k gk
+
+autocmd BufRead,BufNewFile *.md setlocal tw=80
+autocmd BufRead,BufNewFile *.txt setlocal tw=80
+
+
 set list
 set listchars=tab:>-,trail:.
 
