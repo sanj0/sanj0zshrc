@@ -13,6 +13,7 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'preservim/nerdtree'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'sainnhe/sonokai'
+Plugin 'vim-airline/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -37,6 +38,10 @@ set spell
 set complete+=kspell
 set ts=4 sw=4
 set expandtab
+set scrolloff=999
+
+" show word count
+set statusline+=%{wordcount().words}\ words
 
 
 " some setting to make text editing way better
