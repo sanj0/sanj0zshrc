@@ -14,6 +14,8 @@ Plugin 'preservim/nerdtree'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'sainnhe/sonokai'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-scripts/AutoComplPop'
+Plugin 'mhinz/vim-startify'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -21,15 +23,17 @@ filetype plugin indent on    " required
 
 let mapleader=","
 let g:rainbow_active = 1
+let g:startify_session_persistence = 1
 set background=dark
 set path+=**
 " ignore .class files in maven target for gf
 set wildignore+=*/target/*
 set wildmenu
+set cursoline
 colorscheme sonokai
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 set smartindent
 set nu rnu
 syntax on
