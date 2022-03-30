@@ -29,7 +29,7 @@ set path+=**
 " ignore .class files in maven target for gf
 set wildignore+=*/target/*
 set wildmenu
-set cursoline
+set cursorline
 colorscheme sonokai
 autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
