@@ -14,7 +14,6 @@ Plugin 'preservim/nerdtree'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'sainnhe/sonokai'
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-scripts/AutoComplPop'
 Plugin 'mhinz/vim-startify'
 Plugin 'ctrlpvim/ctrlp.vim'
 
@@ -22,8 +21,11 @@ Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" make java switch expression not break syntax highlighting
+syn region  javaLabelRegion	transparent matchgroup=javaLabel start="\<case\>" matchgroup=NONE end=":" end="->" contains=javaNumber,javaCharacter,javaString
+
 let mapleader=","
-let g:rainbow_active = 1
+let g:rainbow_active = 0
 let g:startify_session_persistence = 1
 set background=dark
 set path+=**
@@ -35,6 +37,7 @@ colorscheme sonokai
 autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:startify_session_persistence=1
 set smartindent
 set nu rnu
 syntax on
@@ -45,6 +48,22 @@ set ts=4 sw=4
 set expandtab
 set scrolloff=999
 
+" remove ugly gray background from comments
+hi Comment cterm=NONE
+hi SpecialComment cterm=NONE
+
+" Map key chord `jk` to <Esc>.
+let g:esc_j_lasttime = 0
+let g:esc_k_lasttime = 0
+function! JKescape(key)
+	if a:key=='j' | let g:esc_j_lasttime = reltimefloat(reltime()) | endif
+	if a:key=='k' | let g:esc_k_lasttime = reltimefloat(reltime()) | endif
+	let l:timediff = abs(g:esc_j_lasttime - g:esc_k_lasttime)
+	return (l:timediff <= 0.05 && l:timediff >=0.001) ? "\b\e" : a:key
+endfunction
+
+inoremap <expr> j JKescape('j')
+inoremap <expr> k JKescape('k')
 " show word count
 set statusline+=%{wordcount().words}\ words
 
