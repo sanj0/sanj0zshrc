@@ -4,8 +4,6 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
-" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'frazrepo/vim-rainbow'
@@ -16,9 +14,12 @@ Plugin 'sainnhe/sonokai'
 Plugin 'vim-airline/vim-airline'
 Plugin 'mhinz/vim-startify'
 Plugin 'ctrlpvim/ctrlp.vim'
-
-" All of your Plugins must be added before the following line
+Plugin 'vimwiki/vimwiki'
+Plugin 'rust-lang/rust.vim'
+Plugin 'catppuccin/vim', { 'as': 'catppuccin' }
+Plugin 'ajmwagar/vim-deus'
 call vundle#end()            " required
+
 filetype plugin indent on    " required
 
 " make java switch expression not break syntax highlighting
@@ -33,7 +34,7 @@ set path+=**
 set wildignore+=*/target/*
 set wildmenu
 set cursorline
-colorscheme sonokai
+colorscheme deus
 autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -51,6 +52,15 @@ set scrolloff=999
 " remove ugly gray background from comments
 hi Comment cterm=NONE
 hi SpecialComment cterm=NONE
+
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    let myUndoDir = expand('~/.vim' . '/undodir')
+    " Create dirs
+    call system('mkdir -p' . myUndoDir)
+    let &undodir = myUndoDir
+    set undofile
+endif
 
 " Map key chord `jk` to <Esc>.
 let g:esc_j_lasttime = 0

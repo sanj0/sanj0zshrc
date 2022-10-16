@@ -4,6 +4,7 @@ export PATH=$PATH:~/anaconda3/bin:~/v:$HOME/go/bin
 export EDITOR=vim
 export ICLOUD=~/Library/Mobile\ Documents/com~apple~CloudDocs/
 export PF_INFO="ascii os shell editor palette kernel memory"
+
 alias desktopicons='desktopIcons'
 alias icons='desktopIcons'
 alias firefox='open -a Firefox'
@@ -18,7 +19,6 @@ if [ ! -e ~/.bcrc.bc ]; then
 	touch ~/.bcrc.bc
 fi
 alias bc='bc -l ~/.bcrc.bc'
-alias j='jbsn'
 
 # actives or deactivates the icons on the desktop
 # usage: desktopIcons [true/false]
