@@ -49,6 +49,10 @@ set ts=4 sw=4
 set expandtab
 set scrolloff=999
 
+" have a blinking bar in insert mode
+let &t_SI = "\e[5 q"
+let &t_EI = "\e[2 q"
+
 " remove ugly gray background from comments
 hi Comment cterm=NONE
 hi SpecialComment cterm=NONE
