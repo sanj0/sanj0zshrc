@@ -14,6 +14,8 @@ alias clines='find . -type f -print0 | xargs -0 wc -l'
 alias please='sudo'
 alias finder='open .'
 alias :q='exit'
+alias i3config='vim ~/.config/i3/config'
+alias apple-superdrive="sudo sg_raw /dev/sr0 EA 00 00 00 00 00 01"
 # make sure the file exists because bc will not start when it doesn't exist
 if [ ! -e ~/.bcrc.bc ]; then
 	touch ~/.bcrc.bc
