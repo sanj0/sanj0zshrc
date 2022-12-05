@@ -98,6 +98,8 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
+set incsearch
+
 " Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx
   au!
