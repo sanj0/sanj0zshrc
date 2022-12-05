@@ -58,6 +58,10 @@ function desktopIcons {
 	killall Finder
 }
 
+function open {
+    open_command $1 &
+}
+
 # toggles visibility of hidden files within Finder
 # usage: toggleHidden [true/false]
 function showHidden {
