@@ -18,7 +18,10 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'rust-lang/rust.vim'
 Plugin 'catppuccin/vim', { 'as': 'catppuccin' }
 Plugin 'ajmwagar/vim-deus'
+Plugin 'vim-scripts/scratch.vim'
 call vundle#end()            " required
+
+" say we edit something here
 
 filetype plugin indent on    " required
 
@@ -81,6 +84,11 @@ inoremap <expr> k JKescape('k')
 " show word count
 set statusline+=%{wordcount().words}\ words
 
+noremap <Leader>s :Scratch<CR>
+" ,l to print ls -lah and jmp to the end of the line
+noremap <Leader>l :r !ls -ah1<CR> $
+" ,f to print ls -a1 and jmp to the end of the line
+noremap <Leader>f :r !ls -a1<CR> $
 
 " some setting to make text editing way better
 noremap j gj
