@@ -19,7 +19,6 @@ plugins=(git you-should-use macos zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-eval $(thefuck --alias)
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-14.0.2.jdk/Contents/Home
 export PATH=$PATH:~/anaconda3/bin:~/v:$HOME/go/bin
 export EDITOR=vim

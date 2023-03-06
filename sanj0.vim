@@ -19,6 +19,7 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'catppuccin/vim', { 'as': 'catppuccin' }
 Plugin 'ajmwagar/vim-deus'
 Plugin 'vim-scripts/scratch.vim'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 call vundle#end()            " required
 
 " say we edit something here
