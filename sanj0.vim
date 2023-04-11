@@ -91,6 +91,8 @@ noremap <Leader>l :r !ls -ah1<CR> $
 " ,f to print ls -a1 and jmp to the end of the line
 noremap <Leader>f :r !ls -a1<CR> $
 
+noremap <Leader>d :r !date -I
+
 " some setting to make text editing way better
 noremap j gj
 noremap k gk
