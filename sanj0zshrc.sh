@@ -33,6 +33,17 @@ alias gti='aml; cd Grundlagen\ der\ Technischen\ Informatik\ I'
 alias ads='aml; cd Algorithmen\ und\ Datenstrukturen\ I'
 alias mup='aml; cd Modellierung\ und\ Programmierung\ I'
 
+# kill the silly cat !!
+alias nocat='pkill oneko'
+
+backup() {
+    if [ $# = 0 ]; then
+        echo missing backup destination
+    else
+        sudo rsync -a --delete --progress --exclude "/melophobic/.local/share/libvirt" --exclude "/home/melophobic/.local/share/libvirt" /etc /root /home/melophobic /var /usr/local/bin /usr/local/sbin /srv /opt $1
+    fi
+}
+
 alias desktopicons='desktopIcons'
 alias icons='desktopIcons'
 alias firefox='open -a Firefox'
