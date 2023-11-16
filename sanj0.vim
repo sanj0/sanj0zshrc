@@ -17,10 +17,19 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vimwiki/vimwiki'
 Plugin 'rust-lang/rust.vim'
 Plugin 'catppuccin/vim', { 'as': 'catppuccin' }
-Plugin 'ajmwagar/vim-deus'
 Plugin 'vim-scripts/scratch.vim'
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+"Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'neovim/nvim-lspconfig'
+Plugin 'mfussenegger/nvim-jdtls'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'voronkovich/ultisnips-vue'
 call vundle#end()            " required
+
+let g:UltiSnipsExpandTrigger="<C-j>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
 " say we edit something here
 
@@ -38,7 +47,8 @@ set path+=**
 set wildignore+=*/target/*
 set wildmenu
 set cursorline
-colorscheme deus
+set termguicolors
+colorscheme catppuccin_macchiato
 autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -51,7 +61,6 @@ set spell
 set complete+=kspell
 set ts=4 sw=4
 set expandtab
-set scrolloff=999
 
 " have a blinking bar in insert mode
 let &t_SI = "\e[5 q"
@@ -65,23 +74,13 @@ hi SpecialComment cterm=NONE
 if has('persistent_undo')
     let myUndoDir = expand('~/.vim' . '/undodir')
     " Create dirs
-    call system('mkdir -p' . myUndoDir)
+    call system('mkdir -p ' . myUndoDir)
     let &undodir = myUndoDir
     set undofile
 endif
 
-" Map key chord `jk` to <Esc>.
-let g:esc_j_lasttime = 0
-let g:esc_k_lasttime = 0
-function! JKescape(key)
-	if a:key=='j' | let g:esc_j_lasttime = reltimefloat(reltime()) | endif
-	if a:key=='k' | let g:esc_k_lasttime = reltimefloat(reltime()) | endif
-	let l:timediff = abs(g:esc_j_lasttime - g:esc_k_lasttime)
-	return (l:timediff <= 0.05 && l:timediff >=0.001) ? "\b\e" : a:key
-endfunction
+noremap <Leader>i :YcmShowDetailedDiagnostic<CR>
 
-inoremap <expr> j JKescape('j')
-inoremap <expr> k JKescape('k')
 " show word count
 set statusline+=%{wordcount().words}\ words
 

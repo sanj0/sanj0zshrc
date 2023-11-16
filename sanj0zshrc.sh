@@ -25,13 +25,15 @@ export EDITOR=vim
 export ICLOUD=~/Library/Mobile\ Documents/com~apple~CloudDocs/
 export PF_INFO="ascii os shell editor palette kernel memory"
 
+alias archup='sudo pacman -Syu && yay -Syu && rustup update && ~/./.keymaps.sh'
+
 # local uni repo convenience aliases
-alias aml='cd ~/git/aml_informatik_bsc'
-alias ana='aml; cd Analysis'
-alias ds='aml; cd Diskrete\ Strukturen'
-alias gti='aml; cd Grundlagen\ der\ Technischen\ Informatik\ I'
-alias ads='aml; cd Algorithmen\ und\ Datenstrukturen\ I'
-alias mup='aml; cd Modellierung\ und\ Programmierung\ I'
+# alias aml='cd ~/git/aml_informatik_bsc'
+# alias ana='aml; cd Analysis'
+# alias ds='aml; cd Diskrete\ Strukturen'
+# alias gti='aml; cd Grundlagen\ der\ Technischen\ Informatik\ I'
+# alias ads='aml; cd Algorithmen\ und\ Datenstrukturen\ I'
+# alias mup='aml; cd Modellierung\ und\ Programmierung\ I'
 
 # kill the silly cat !!
 alias nocat='pkill oneko'

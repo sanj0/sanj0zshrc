@@ -43,6 +43,25 @@ define gen_e(s) {
 	return e;
 }
 
+/*
+ * Performs a division with rest.
+ * Output is of form:
+ * a / b = z R r
+ * where b * z + r = a and r < b.
+ * Also returns the rest as to not implicitly return 0;
+ */
+define div_r(a, b) {
+    auto s, z;
+    s = scale;
+    scale = 0;
+    z = a / b;
+    r = a - b * z;
+    scale = s;
+    z;
+    "R";
+    return r;
+}
+
 define prime(n) {
     auto m, i, s;
     if (scale(n) != 0 || n < 0) return 0;
